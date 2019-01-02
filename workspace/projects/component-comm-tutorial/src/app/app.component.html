@@ -1,0 +1,77 @@
+
+
+<h1>
+  communication between fajar and child
+</h1>
+
+<h2>
+  @Input
+</h2>
+
+<app-child [message]="messageToChild" [messageObj]="messageObjToChild" ></app-child>
+
+<h2>
+  @Output
+</h2>
+
+<app-child (clickEvent)="title = $event" ></app-child>
+
+{{title}}
+
+<h2>
+  Service
+</h2>
+
+<p>
+  can communicate between everyone
+</p>
+
+<p>
+  {{msgFromChild}}
+</p>
+
+<h2>
+  Template reference variable
+</h2>
+
+<p #pElement>
+  
+</p>
+
+<app-child #childInstance message="trv..."></app-child>
+
+<h5>
+  {{childInstance.giveMeAString()}}
+  {{childInstance.message}}
+</h5>
+
+<h2>
+  @ViewChild
+</h2>
+
+<h2>
+  Transclusion
+</h2>
+
+<p>
+  to transfer to the child entire template content
+</p>
+
+<app-child>
+  <div header>
+      <h1>
+        hello from parent {{title}}
+      </h1>
+      <p>
+        stam text
+      </p>
+      <app-grand-child #nameOfTrvOfGrandChild></app-grand-child>
+  </div>
+  <div footer>
+    hello im footer
+  </div>
+</app-child>
+
+<h2>
+  @ContentChild
+</h2>

@@ -1,0 +1,7 @@
+<input type="search" placeholder="autocomplete" (input)="searchTasks($event)" />
+
+<ul>
+  <li *ngFor="let item of (todoItemsResult$ | async)">
+    {{item.title}}
+  </li>
+</ul>

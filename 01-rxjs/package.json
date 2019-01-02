@@ -1,0 +1,18 @@
+{
+  "name": "01-rxjs",
+  "version": "1.0.0",
+  "description": "In this lesson we will improve our toolset used for dealing with async programming in JS. \r We will learn about Reactive X and compare it with Promises.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.2.2"
+  },
+  "dependencies": {
+    "rxjs": "^6.3.3"
+  }
+}

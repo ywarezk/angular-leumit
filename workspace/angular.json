@@ -1,0 +1,297 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "autocomplete-problem": {
+      "root": "projects/autocomplete-problem/",
+      "sourceRoot": "projects/autocomplete-problem/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/autocomplete-problem",
+            "index": "projects/autocomplete-problem/src/index.html",
+            "main": "projects/autocomplete-problem/src/main.ts",
+            "polyfills": "projects/autocomplete-problem/src/polyfills.ts",
+            "tsConfig": "projects/autocomplete-problem/tsconfig.app.json",
+            "assets": [
+              "projects/autocomplete-problem/src/favicon.ico",
+              "projects/autocomplete-problem/src/assets"
+            ],
+            "styles": [
+              "projects/autocomplete-problem/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/autocomplete-problem/src/environments/environment.ts",
+                  "with": "projects/autocomplete-problem/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "autocomplete-problem:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "autocomplete-problem:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "autocomplete-problem:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/autocomplete-problem/src/test.ts",
+            "polyfills": "projects/autocomplete-problem/src/polyfills.ts",
+            "tsConfig": "projects/autocomplete-problem/tsconfig.spec.json",
+            "karmaConfig": "projects/autocomplete-problem/karma.conf.js",
+            "styles": [
+              "projects/autocomplete-problem/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/autocomplete-problem/src/favicon.ico",
+              "projects/autocomplete-problem/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/autocomplete-problem/tsconfig.app.json",
+              "projects/autocomplete-problem/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "autocomplete-problem-e2e": {
+      "root": "projects/autocomplete-problem-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/autocomplete-problem-e2e/protractor.conf.js",
+            "devServerTarget": "autocomplete-problem:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "autocomplete-problem:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/autocomplete-problem-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "stam": {
+      "root": "projects/stam",
+      "sourceRoot": "projects/stam/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/stam/tsconfig.lib.json",
+            "project": "projects/stam/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/stam/src/test.ts",
+            "tsConfig": "projects/stam/tsconfig.spec.json",
+            "karmaConfig": "projects/stam/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/stam/tsconfig.lib.json",
+              "projects/stam/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "component-comm-tutorial": {
+      "root": "projects/component-comm-tutorial/",
+      "sourceRoot": "projects/component-comm-tutorial/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/component-comm-tutorial",
+            "index": "projects/component-comm-tutorial/src/index.html",
+            "main": "projects/component-comm-tutorial/src/main.ts",
+            "polyfills": "projects/component-comm-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/component-comm-tutorial/tsconfig.app.json",
+            "assets": [
+              "projects/component-comm-tutorial/src/favicon.ico",
+              "projects/component-comm-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/component-comm-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/component-comm-tutorial/src/environments/environment.ts",
+                  "with": "projects/component-comm-tutorial/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "component-comm-tutorial:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "component-comm-tutorial:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "component-comm-tutorial:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/component-comm-tutorial/src/test.ts",
+            "polyfills": "projects/component-comm-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/component-comm-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/component-comm-tutorial/karma.conf.js",
+            "styles": [
+              "projects/component-comm-tutorial/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/component-comm-tutorial/src/favicon.ico",
+              "projects/component-comm-tutorial/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/component-comm-tutorial/tsconfig.app.json",
+              "projects/component-comm-tutorial/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "component-comm-tutorial-e2e": {
+      "root": "projects/component-comm-tutorial-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/component-comm-tutorial-e2e/protractor.conf.js",
+            "devServerTarget": "component-comm-tutorial:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "component-comm-tutorial:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/component-comm-tutorial-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "autocomplete-problem"
+}
