@@ -23,3 +23,14 @@ We will create App component 2 children and 2 grandchild and learn when they are
 * create a new zone, child of root called angular
 * your zone should add a method in the onHasTask and determine when the timer is finished.
 * run a timer in the zone and make sure your onHasTask is detecting when the queue is empty and then prints to the console that we are now running change detection.
+
+### EX OnPush
+
+* create a parent and child component
+* the parent is passing data to the child through @Input
+* the data that is passed is an object
+* the parent change a property in the object (the parent does not change the reference) after a certain time is passed
+* the child has an OnPush change detection strategy
+* make sure the child does not trigger cd when the input property is changed
+* the child need to implement differ to track changes on the input and detect in the DoCheck lifecycle hook the the property change and trigger change detection manually using the ChangeDetectorRef.
+
