@@ -1,0 +1,27 @@
+
+
+<nav>
+  <ul>
+    <li>
+      <a routerLink="/">Home</a>
+    </li>
+    <li>
+      <a routerLink="/about">About</a>
+    </li>
+    <li>
+      <a routerLink="/settings/user">Settings user</a>
+    </li>
+    <li>
+      <a [routerLink]="[{outlets: {popups: ['modals', 'login']}}]" skipLocationChange>open login modal</a>
+    </li>
+    <li>
+      <a routerLink="/todo">todo page</a>
+    </li>
+  </ul>
+</nav>
+
+<router-outlet></router-outlet>
+
+
+<!-- this is where i will place popups components -->
+<router-outlet name="popups"></router-outlet>

@@ -545,6 +545,133 @@
           }
         }
       }
+    },
+    "routing-tutorial": {
+      "root": "projects/routing-tutorial/",
+      "sourceRoot": "projects/routing-tutorial/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/routing-tutorial",
+            "index": "projects/routing-tutorial/src/index.html",
+            "main": "projects/routing-tutorial/src/main.ts",
+            "polyfills": "projects/routing-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/routing-tutorial/tsconfig.app.json",
+            "assets": [
+              "projects/routing-tutorial/src/favicon.ico",
+              "projects/routing-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/routing-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/routing-tutorial/src/environments/environment.ts",
+                  "with": "projects/routing-tutorial/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "routing-tutorial:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "routing-tutorial:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "routing-tutorial:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/routing-tutorial/src/test.ts",
+            "polyfills": "projects/routing-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/routing-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/routing-tutorial/karma.conf.js",
+            "styles": [
+              "projects/routing-tutorial/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/routing-tutorial/src/favicon.ico",
+              "projects/routing-tutorial/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/routing-tutorial/tsconfig.app.json",
+              "projects/routing-tutorial/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "routing-tutorial-e2e": {
+      "root": "projects/routing-tutorial-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/routing-tutorial-e2e/protractor.conf.js",
+            "devServerTarget": "routing-tutorial:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "routing-tutorial:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/routing-tutorial-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "autocomplete-problem"

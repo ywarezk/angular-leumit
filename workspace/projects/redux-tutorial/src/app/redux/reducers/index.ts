@@ -5,14 +5,17 @@
 import {ActionReducerMap} from '@ngrx/store';
 import { ITodo, todoReducer } from './todo-reducers';
 import { todoServerReducer, ITodoServerState } from './todo-server-reducer';
+import {routerReducer, BaseRouterStoreState, SerializedRouterStateSnapshot} from '@ngrx/router-store';
 
 
 export interface EntireState{
     todo : ITodo,
-    todoServer: ITodoServerState
+    todoServer: ITodoServerState,
+    router : any
 }
 
 export const ourTodoReducerMap : ActionReducerMap<EntireState> = {
     todo: todoReducer,
-    todoServer: todoServerReducer
+    todoServer: todoServerReducer,
+    router: routerReducer
 }

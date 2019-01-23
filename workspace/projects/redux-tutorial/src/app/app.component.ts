@@ -20,14 +20,14 @@ export class AppComponent implements OnInit {
 
   // i want to send a request to the server and initiate the taskServer
   ngOnInit() {
-    this._store.dispatch(new ToggleLoading(true));
-    this._todoService.getAllTasksFromServer()
-      .subscribe((tasks) => {
-        this._store.dispatch(new SetTasks(tasks));
-        this._store.dispatch(new ToggleLoading(false));
-      }, (err) => {
-        this._store.dispatch(new SetError(err));
-        this._store.dispatch(new ToggleLoading(false));
-      })
+    // this._store.dispatch(new ToggleLoading(true));
+    // this._todoService.getAllTasksFromServer()
+    //   .subscribe((tasks) => {
+    //     this._store.dispatch(new SetTasks(tasks));
+    //     this._store.dispatch(new ToggleLoading(false));
+    //   }, (err) => {
+    //     this._store.dispatch(new SetError(err));
+    //     this._store.dispatch(new ToggleLoading(false));
+    //   })
   }
 }
