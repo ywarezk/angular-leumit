@@ -8,6 +8,10 @@ import {StoreModule} from '@ngrx/store';
 import { ourTodoReducerMap } from './redux/reducers';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { HttpClientModule } from '@angular/common/http';
+import {EffectsModule} from '@ngrx/effects';
+import { TodoService } from './todo.service';
+import {StoreRouterConnectingModule} from '@ngrx/router-store';
+import { RouterModule } from '@angular/router';
 
 // store
 // is holding our state
@@ -25,7 +29,12 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     StoreModule.forRoot(ourTodoReducerMap),
     StoreDevtoolsModule.instrument({}),
-    HttpClientModule
+    HttpClientModule,
+    EffectsModule.forRoot([
+      TodoService
+    ]),
+    RouterModule.forRoot([]),
+    StoreRouterConnectingModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
