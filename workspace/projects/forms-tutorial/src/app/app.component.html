@@ -1,0 +1,46 @@
+<h1>
+  Template driven
+</h1>
+<lib-template-driven></lib-template-driven>
+
+<h1>
+  Reactive approach
+</h1>
+
+<lib-reactive></lib-reactive>
+
+
+<h1>
+  no validate
+</h1>
+
+<!-- no novalidate?  -->
+<!-- novalidate  -->
+<!-- default event is activated -->
+<form  (submit)="isFormSubmitting()" novalidate>
+  <input type="text" required />
+  <input type="text" minlength="5" />
+  <input type="text" maxlength="100" />
+  <input type="text" pattern="[0-9]+" />
+  <button type="submit">
+    submit
+  </button>
+</form>
+
+<h1>
+  My custom ngModel
+</h1>
+
+<h5>
+  Template driven
+</h5>
+
+<form>
+  <lib-doctor-form-control [(ngModel)]="doctor" name="doctor"></lib-doctor-form-control>
+</form>
+
+<h5>
+  Reactive approach
+</h5>
+
+<lib-doctor-form-control [formControl]="doctorControl"></lib-doctor-form-control>

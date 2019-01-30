@@ -1,0 +1,48 @@
+
+
+<input type="text" [formControl]="todo" /> 
+{{todo.value}}
+{{todo.errors | json}}
+
+<h1>
+    Reactive form group example
+</h1>
+
+<form [formGroup]="formGroupBindingExample">
+    <input formControlName="email" type="email" email required /> {{formGroupBindingExample.controls.email.errors | json}} <br/>
+    <input [formControl]="formGroupBindingExample.controls.password" />
+</form>
+
+<h1>
+    Nested Form group
+</h1>
+
+<form [formGroup]="formGroupRegister">
+        <input formControlName="email" type="email" /> {{formGroupRegister.controls.email.errors | json}} <br/>
+        <ng-container formGroupName="repeatPassword">
+            <input type="password" formControlName="password" />
+            <input type="password" formControlName="repeat" />
+        </ng-container>
+        {{formGroupRegister.controls.repeatPassword.errors | json}}
+</form>
+
+<form [formGroup]="doctorsForm">
+    <div *ngFor="let singleDoctorForm of doctorsForm.controls.doctors.controls">
+        <ng-container [formGroup]="singleDoctorForm">
+            <input type="text" placeholder="first name" formControlName="firstName" />
+            <input type="text" placeholder="last name" formControlName="lastName" />
+        </ng-container>
+    </div>
+    <button (click)="addDoctorFormGroup()">
+        + Add new doctor
+    </button>
+</form>
+
+<form [formGroup]="doctorsForm2">
+    <div *ngFor="let singleDoctorForm of doctorsForm2.controls.doctors.controls">
+        <lib-doctor-form-control [formControl]="singleDoctorForm"></lib-doctor-form-control>        
+    </div>
+    <button (click)="addDoctorFormGroup2()">
+        + Add new doctor
+    </button>
+</form>

@@ -672,6 +672,313 @@
           }
         }
       }
+    },
+    "leumit-forms": {
+      "root": "projects/leumit-forms",
+      "sourceRoot": "projects/leumit-forms/src",
+      "projectType": "library",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/leumit-forms/tsconfig.lib.json",
+            "project": "projects/leumit-forms/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/leumit-forms/src/test.ts",
+            "tsConfig": "projects/leumit-forms/tsconfig.spec.json",
+            "karmaConfig": "projects/leumit-forms/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/leumit-forms/tsconfig.lib.json",
+              "projects/leumit-forms/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "forms-tutorial": {
+      "root": "projects/forms-tutorial/",
+      "sourceRoot": "projects/forms-tutorial/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/forms-tutorial",
+            "index": "projects/forms-tutorial/src/index.html",
+            "main": "projects/forms-tutorial/src/main.ts",
+            "polyfills": "projects/forms-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/forms-tutorial/tsconfig.app.json",
+            "assets": [
+              "projects/forms-tutorial/src/favicon.ico",
+              "projects/forms-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/forms-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/forms-tutorial/src/environments/environment.ts",
+                  "with": "projects/forms-tutorial/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "forms-tutorial:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "forms-tutorial:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "forms-tutorial:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/forms-tutorial/src/test.ts",
+            "polyfills": "projects/forms-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/forms-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/forms-tutorial/karma.conf.js",
+            "styles": [
+              "projects/forms-tutorial/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/forms-tutorial/src/favicon.ico",
+              "projects/forms-tutorial/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/forms-tutorial/tsconfig.app.json",
+              "projects/forms-tutorial/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "forms-tutorial-e2e": {
+      "root": "projects/forms-tutorial-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/forms-tutorial-e2e/protractor.conf.js",
+            "devServerTarget": "forms-tutorial:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "forms-tutorial:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/forms-tutorial-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "ssr-tutorial": {
+      "root": "projects/ssr-tutorial/",
+      "sourceRoot": "projects/ssr-tutorial/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/ssr-tutorial",
+            "index": "projects/ssr-tutorial/src/index.html",
+            "main": "projects/ssr-tutorial/src/main.ts",
+            "polyfills": "projects/ssr-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/ssr-tutorial/tsconfig.app.json",
+            "assets": [
+              "projects/ssr-tutorial/src/favicon.ico",
+              "projects/ssr-tutorial/src/assets"
+            ],
+            "styles": [
+              "projects/ssr-tutorial/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ssr-tutorial/src/environments/environment.ts",
+                  "with": "projects/ssr-tutorial/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "ssr-tutorial:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "ssr-tutorial:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "ssr-tutorial:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/ssr-tutorial/src/test.ts",
+            "polyfills": "projects/ssr-tutorial/src/polyfills.ts",
+            "tsConfig": "projects/ssr-tutorial/tsconfig.spec.json",
+            "karmaConfig": "projects/ssr-tutorial/karma.conf.js",
+            "styles": [
+              "projects/ssr-tutorial/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/ssr-tutorial/src/favicon.ico",
+              "projects/ssr-tutorial/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/ssr-tutorial/tsconfig.app.json",
+              "projects/ssr-tutorial/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/ssr-tutorial-server",
+            "main": "projects/ssr-tutorial/src/main.server.ts",
+            "tsConfig": "projects/ssr-tutorial/tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/ssr-tutorial/src/environments/environment.ts",
+                  "with": "projects/ssr-tutorial/src/environments/environment.prod.ts"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "ssr-tutorial-e2e": {
+      "root": "projects/ssr-tutorial-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/ssr-tutorial-e2e/protractor.conf.js",
+            "devServerTarget": "ssr-tutorial:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "ssr-tutorial:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/ssr-tutorial-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "autocomplete-problem"

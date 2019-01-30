@@ -25,6 +25,12 @@
       ],
       "stam/*": [
         "dist/stam/*"
+      ],
+      "leumit-forms": [
+        "projects/leumit-forms/src/public_api"
+      ],
+      "leumit-forms/*": [
+        "dist/leumit-forms/*"
       ]
     }
   }

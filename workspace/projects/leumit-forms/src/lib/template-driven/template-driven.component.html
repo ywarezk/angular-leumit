@@ -1,0 +1,66 @@
+
+<input type="text" [(ngModel)]="todo" />
+
+<input type="text" [ngModel]="todo2" />
+
+<input type="text" ngModel #noSeenBinding="ngModel" />
+
+{{noSeenBinding.control.value}}
+
+<!-- angular will create NgForm -->
+<!-- novalidate - why?  -->
+<!-- preventDefault -->
+<form #ngFormExample="ngForm" (submit)="handleSubmitNgFormExample(ngFormExample)">
+  <input type="text" ngModel name="val1" />
+  <input type="text" [ngModel]="ngformValue1" [ngModelOptions]="{name: 'val2'}" />
+  <input type="text"/>
+  <input type="text" />
+  <button type="submit">
+    submit
+  </button>
+</form>
+
+<form>
+  <input required pattern="[0-9]+" ngModel name="stam" />
+</form>
+
+<!-- <form>
+    <input required pattern="[0-9]+"  />
+  </form> -->
+
+<h1>
+  Custom Validtion Directive
+</h1>
+
+<input type="email" ngModel leumitEmail #isValidationWorking="ngModel" /> {{isValidationWorking.errors | json}}
+
+<h5>
+  repeat validation
+</h5>
+
+<form leumitRepeat #repeatNgForm1="ngForm">
+  <input type="text" ngModel name="password"  />
+  <input type="text" ngModel name="repeat"  />
+</form>
+<div>
+  {{repeatNgForm1.errors | json}}
+</div>
+
+<form [leumitRepeat]="['compare', 'toThis']" #repeatNgForm2="ngForm">
+    <input type="text" ngModel name="compare"  />
+    <input type="text" ngModel name="toThis"  />
+  </form>
+
+  <div>
+      {{repeatNgForm2.errors | json}}
+    </div>
+
+<h1>
+  Async validation
+</h1>
+
+<input 
+  type="number" 
+  [ngModelOptions]="{updateOn: 'blur'}"
+  ngModel leumitIsTaskExist #checkAsyncvalidator="ngModel" />
+{{checkAsyncvalidator.errors | json}}
